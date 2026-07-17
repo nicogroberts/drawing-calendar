@@ -7,7 +7,7 @@
 }
 
 html {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   font-family: "Inter", sans-serif;
   color: var(--tertiary-color);
 }
@@ -21,4 +21,17 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+  color: #fff;
+}
+
+main {
+  background-color: var(--primary-color);
+}
+
+footer {
+  text-align: center;
 }
