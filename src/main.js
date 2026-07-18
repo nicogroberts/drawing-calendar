@@ -1,3 +1,4 @@
-import { displayCurrentDate } from "./calendar";
+import { displayCurrentDate, generateCalendar } from "./calendar";
 
 displayCurrentDate();
+generateCalendar();
