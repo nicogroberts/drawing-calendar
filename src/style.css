@@ -48,7 +48,7 @@ main {
 }
 
 .month {
-  margin: 0 2rem;
+  margin: 0 2.2rem;
 }
 
 .days-container {
@@ -61,7 +61,7 @@ main {
 }
 
 .day {
-  margin: 0.5rem 0;
+  margin-bottom: 0.5rem;
 }
 
 .cols-container {

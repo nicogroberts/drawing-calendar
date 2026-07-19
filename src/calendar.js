@@ -97,27 +97,46 @@ const generateCalendar = () => {
         // Create a day div for each day up till the current month
         if (i !== currentMonth) {
             for (let j = 0; j < Object.values(daysOfTheMonth)[i]; j++) {
-                const cell = document.createElement("div");
-                cell.classList.add("cell");
-                col.appendChild(cell);
+                createNewCell();
                 dayCounter++;
-                console.log(dayCounter);
 
                 if (dayCounter === 7) {
-                    col = document.createElement("div");
-                    col.classList.add("col");
-                    colsContainer.appendChild(col);
-                    console.log("new col created");
+                    createNewColumn();
                     dayCounter = 0;
                 }
             }
-            col = document.createElement("div");
-            col.classList.add("col");
-            colsContainer.appendChild(col);
+            createNewColumn();
         }
         
         if (i === currentMonth) {
             console.log(currentDay);
+            for (let j = 0; j < currentDay; j++) {
+                createNewCell();
+                dayCounter++;
+
+                if (dayCounter === 7) {
+                    createNewColumn();
+                    dayCounter = 0;
+                }
+            }
         }
     }
 };
+
+/**
+ * Creates a new column
+ */
+const createNewColumn = () => {
+    col = document.createElement("div");
+    col.classList.add("col");
+    colsContainer.appendChild(col);
+}
+
+/**
+ * Creates a new cell
+ */
+const createNewCell = () => {
+    const cell = document.createElement("div");
+    cell.classList.add("cell");
+    col.appendChild(cell);
+}
