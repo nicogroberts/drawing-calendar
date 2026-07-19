@@ -53,13 +53,25 @@ const generateDayLabel = (d) => {
 
 // Get the calendar div
 const calendar = document.getElementById("calendar");
+// Create months div
 const months = document.createElement("div");
 months.classList.add("months");
 calendar.appendChild(months);
 const days = document.createElement("div");
+// Create days div
+const daysContainer = document.createElement("div");
+daysContainer.classList.add("days-container");
+calendar.appendChild(daysContainer);
 days.classList.add("days");
 daysOfTheWeek.forEach(generateDayLabel);
-calendar.appendChild(days);
+daysContainer.appendChild(days);
+
+const colsContainer = document.createElement("div");
+colsContainer.classList.add("cols-container");
+daysContainer.appendChild(colsContainer);
+let col = document.createElement("div");
+col.classList.add("col");
+colsContainer.appendChild(col);
 
 /**
  * Displays current date in the console
@@ -74,12 +86,36 @@ const displayCurrentDate = () => {
 const generateCalendar = () => {
     for (let i = 0; i <= currentMonth; i++)
     {
-        let month = document.createElement("span");
+        // Create month labels
+        const month = document.createElement("span");
         month.classList.add("month");
         month.textContent = Object.keys(daysOfTheMonth)[i];
         months.appendChild(month);
+
+        let dayCounter = 0;
+
+        // Create a day div for each day up till the current month
+        if (i !== currentMonth) {
+            for (let j = 0; j < Object.values(daysOfTheMonth)[i]; j++) {
+                const cell = document.createElement("div");
+                cell.classList.add("cell");
+                col.appendChild(cell);
+                dayCounter++;
+                console.log(dayCounter);
+
+                if (dayCounter === 7) {
+                    col = document.createElement("div");
+                    col.classList.add("col");
+                    colsContainer.appendChild(col);
+                    console.log("new col created");
+                    dayCounter = 0;
+                }
+            }
+            col = document.createElement("div");
+            col.classList.add("col");
+            colsContainer.appendChild(col);
+        }
         
-        console.log(Object.entries(daysOfTheMonth)[i]);
         if (i === currentMonth) {
             console.log(currentDay);
         }
