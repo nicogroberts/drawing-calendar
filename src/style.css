@@ -47,6 +47,15 @@ main {
   margin: 0 0.5rem;
 }
 
+.days {
+  display: flex;
+  flex-direction: column;
+}
+
+.day {
+  margin: 0.5rem 0;
+}
+
 footer {
   text-align: center;
   margin: 0.5rem;

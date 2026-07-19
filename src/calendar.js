@@ -19,21 +19,20 @@ const daysOfTheMonth = {
 };
 
 /**
+ * An array containing the days of the week
+ */
+const daysOfTheWeek = ["Mon", "Wed", "Fri"];
+
+/**
  * Object containing all the different colors corresponding to amount of activity levels
  */
 const activityStates = {
-    None: '#262626',
-    Least: '#033a16',
-    Less: '#196c2e',
-    More: '#2ea043',
-    Most: '#55d163'
+    None: "#262626",
+    Least: "#033a16",
+    Less: "#196c2e",
+    More: "#2ea043",
+    Most: "#55d163"
 };
-
-// first thing needed is the current date
-// need to extract day and month from the current date
-// create a loop starting from the beginning of the year 0, 1 to current date
-// get parent DOM element
-
 
 // current date variable
 const currentDate = new Date();
@@ -42,11 +41,25 @@ const currentMonth = currentDate.getMonth();
 // current day variable
 const currentDay = currentDate.getDate();
 
+/**
+ * Creates label for days of the week
+ */
+const generateDayLabel = (d) => {
+    let day = document.createElement("span");
+    day.classList.add("day");
+    day.textContent = d;
+    days.appendChild(day);
+}
+
 // Get the calendar div
-const calendar = document.getElementById('calendar');
-const months = document.createElement('div');
-months.classList.add('months');
+const calendar = document.getElementById("calendar");
+const months = document.createElement("div");
+months.classList.add("months");
 calendar.appendChild(months);
+const days = document.createElement("div");
+days.classList.add("days");
+daysOfTheWeek.forEach(generateDayLabel);
+calendar.appendChild(days);
 
 /**
  * Displays current date in the console
@@ -56,13 +69,13 @@ const displayCurrentDate = () => {
 };
 
 /**
- * Create calendar elements on the DOM
+ * Creates calendar elements on the DOM
  */
 const generateCalendar = () => {
     for (let i = 0; i <= currentMonth; i++)
     {
-        let month = document.createElement('span');
-        month.classList.add('month');
+        let month = document.createElement("span");
+        month.classList.add("month");
         month.textContent = Object.keys(daysOfTheMonth)[i];
         months.appendChild(month);
         
