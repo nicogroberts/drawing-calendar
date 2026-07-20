@@ -80,6 +80,10 @@ const lessLabel = document.createElement("span");
 lessLabel.classList.add("less-label");
 lessLabel.textContent = "Less";
 legend.appendChild(lessLabel);
+const moreLabel = document.createElement("span");
+moreLabel.classList.add("more-label");
+moreLabel.textContent = "More";
+legend.appendChild(moreLabel);
 
 
 /**
