@@ -51,6 +51,12 @@ const generateDayLabel = (d) => {
     days.appendChild(day);
 }
 
+const generateLegendCells = (c) => {
+    let cell = document.createElement("span");
+    cell.classList.add("cell");
+    legend.appendChild(cell);
+}
+
 // Get the calendar div
 const calendar = document.getElementById("calendar");
 // Create months div
@@ -80,11 +86,11 @@ const lessLabel = document.createElement("span");
 lessLabel.classList.add("less-label");
 lessLabel.textContent = "Less";
 legend.appendChild(lessLabel);
+Object.values(activityStates).forEach(generateLegendCells);
 const moreLabel = document.createElement("span");
 moreLabel.classList.add("more-label");
 moreLabel.textContent = "More";
 legend.appendChild(moreLabel);
-
 
 /**
  * Displays current date in the console
