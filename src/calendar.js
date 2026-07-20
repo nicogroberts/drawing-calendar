@@ -65,13 +65,22 @@ calendar.appendChild(daysContainer);
 days.classList.add("days");
 daysOfTheWeek.forEach(generateDayLabel);
 daysContainer.appendChild(days);
-
+// Create cols div
 const colsContainer = document.createElement("div");
 colsContainer.classList.add("cols-container");
 daysContainer.appendChild(colsContainer);
 let col = document.createElement("div");
 col.classList.add("col");
 colsContainer.appendChild(col);
+// Create legend
+const legend = document.createElement("div");
+legend.classList.add("legend");
+calendar.appendChild(legend);
+const lessLabel = document.createElement("span");
+lessLabel.classList.add("less-label");
+lessLabel.textContent = "Less";
+legend.appendChild(lessLabel);
+
 
 /**
  * Displays current date in the console
