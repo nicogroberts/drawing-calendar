@@ -43,6 +43,7 @@ const currentDay = currentDate.getDate();
 
 /**
  * Creates label for days of the week
+ * @param {D} d The day name string
  */
 const generateDayLabel = (d) => {
     let day = document.createElement("span");
@@ -51,9 +52,14 @@ const generateDayLabel = (d) => {
     days.appendChild(day);
 }
 
+/**
+ * Creates the cells in the legend of the calendar
+ * @param {C} c The cell color string
+ */
 const generateLegendCells = (c) => {
     let cell = document.createElement("span");
     cell.classList.add("cell");
+    cell.style.backgroundColor = c;
     legend.appendChild(cell);
 }
 
