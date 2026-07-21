@@ -48,11 +48,11 @@ main {
 }
 
 .months {
-  
+  display: flex;
 }
 
 .month {
-  
+  display: flex;
 }
 
 .days-container {
@@ -67,6 +67,7 @@ main {
 .day {
   margin-bottom: 0.5rem;
 }
+
 .cell {
   background-color: var(--secondary-color);
   padding: 6px;
