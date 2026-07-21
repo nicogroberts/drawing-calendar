@@ -52,7 +52,7 @@ main {
 }
 
 .month {
-  display: flex;
+  
 }
 
 .days-container {
@@ -66,6 +66,10 @@ main {
 
 .day {
   margin-bottom: 0.5rem;
+}
+
+.cell-container {
+  display: flex;
 }
 
 .cell {

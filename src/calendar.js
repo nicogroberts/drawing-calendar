@@ -114,11 +114,14 @@ const generateCalendar = () => {
         month.classList.add("month");
         month.textContent = Object.keys(daysOfTheMonth)[i];
         months.appendChild(month);
+        const cellContainer = document.createElement("div");
+        cellContainer.classList.add("cell-container");
+        month.appendChild(cellContainer);
 
         // Create cols div
         let col = document.createElement("div");
         col.classList.add("col");
-        month.appendChild(col);
+        cellContainer.appendChild(col);
 
         let dayCounter = 0;
 
@@ -133,7 +136,7 @@ const generateCalendar = () => {
                 if (dayCounter === 7) {
                     col = document.createElement("div");
                     col.classList.add("col");
-                    month.appendChild(col);
+                    cellContainer.appendChild(col);
                     dayCounter = 0;
                 }
             }
@@ -153,7 +156,7 @@ const generateCalendar = () => {
                 if (dayCounter === 7) {
                     col = document.createElement("div");
                     col.classList.add("col");
-                    month.appendChild(col);
+                    cellContainer.appendChild(col);
                     dayCounter = 0;
                 }
             }
