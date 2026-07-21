@@ -49,10 +49,7 @@ main {
 
 .months {
   display: flex;
-}
-
-.month {
-  
+  margin: 0 1rem 1rem 1rem;
 }
 
 .days-container {
@@ -64,8 +61,16 @@ main {
   flex-direction: column;
 }
 
-.day {
-  margin-bottom: 0.5rem;
+#Mon {
+  margin-top: calc(1rem + 4px);
+}
+
+#Wed {
+  margin-top: 10px;
+}
+
+#Fri {
+  margin-top: 8px;
 }
 
 .cell-container {

@@ -47,7 +47,7 @@ const currentDay = currentDate.getDate();
  */
 const generateDayLabel = (d) => {
     let day = document.createElement("span");
-    day.classList.add("day");
+    day.id = d;
     day.textContent = d;
     days.appendChild(day);
 }
