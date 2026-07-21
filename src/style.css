@@ -43,12 +43,16 @@ main {
   padding: 1rem;
 }
 
+.calendar-container {
+  display: flex;
+}
+
 .months {
-  margin-left: 1.2rem;
+  
 }
 
 .month {
-  margin: 0 2.2rem;
+  
 }
 
 .days-container {
@@ -63,12 +67,6 @@ main {
 .day {
   margin-bottom: 0.5rem;
 }
-
-.cols-container {
-  margin: 0 1rem;
-  display: flex;
-}
-
 .cell {
   background-color: var(--secondary-color);
   padding: 6px;

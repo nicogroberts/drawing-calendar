@@ -65,25 +65,23 @@ const generateLegendCells = (c) => {
 
 // Get the calendar div
 const calendar = document.getElementById("calendar");
+// Create container
+const calendarContainer = document.createElement("div");
+calendarContainer.classList.add("calendar-container");
+calendar.appendChild(calendarContainer);
 // Create months div
-const months = document.createElement("div");
-months.classList.add("months");
-calendar.appendChild(months);
-const days = document.createElement("div");
+//const months = document.createElement("div");
+//months.classList.add("months");
+//calendar.appendChild(months);
 // Create days div
-const daysContainer = document.createElement("div");
-daysContainer.classList.add("days-container");
-calendar.appendChild(daysContainer);
+const days = document.createElement("div");
 days.classList.add("days");
 daysOfTheWeek.forEach(generateDayLabel);
-daysContainer.appendChild(days);
-// Create cols div
-const colsContainer = document.createElement("div");
-colsContainer.classList.add("cols-container");
-daysContainer.appendChild(colsContainer);
-let col = document.createElement("div");
-col.classList.add("col");
-colsContainer.appendChild(col);
+calendarContainer.appendChild(days);
+//Creates months div
+const months = document.createElement("div");
+months.classList.add("months");
+calendarContainer.appendChild(months);
 // Create legend
 const legend = document.createElement("div");
 legend.classList.add("legend");
@@ -117,51 +115,48 @@ const generateCalendar = () => {
         month.textContent = Object.keys(daysOfTheMonth)[i];
         months.appendChild(month);
 
+        // Create cols div
+        let col = document.createElement("div");
+        col.classList.add("col");
+        month.appendChild(col);
+
         let dayCounter = 0;
 
         // Create a day div for each day up till the current month
         if (i !== currentMonth) {
             for (let j = 0; j < Object.values(daysOfTheMonth)[i]; j++) {
-                createNewCell();
+                const cell = document.createElement("div");
+                cell.classList.add("cell");
+                col.appendChild(cell);
                 dayCounter++;
 
                 if (dayCounter === 7) {
-                    createNewColumn();
+                    col = document.createElement("div");
+                    col.classList.add("col");
+                    month.appendChild(col);
                     dayCounter = 0;
                 }
             }
-            createNewColumn();
+            col = document.createElement("div");
+            col.classList.add("col");
+            month.appendChild(col);
         }
         
         if (i === currentMonth) {
             console.log(currentDay);
             for (let j = 0; j < currentDay; j++) {
-                createNewCell();
+                const cell = document.createElement("div");
+                cell.classList.add("cell");
+                col.appendChild(cell);
                 dayCounter++;
 
                 if (dayCounter === 7) {
-                    createNewColumn();
+                    col = document.createElement("div");
+                    col.classList.add("col");
+                    month.appendChild(col);
                     dayCounter = 0;
                 }
             }
         }
     }
 };
-
-/**
- * Creates a new column
- */
-const createNewColumn = () => {
-    col = document.createElement("div");
-    col.classList.add("col");
-    colsContainer.appendChild(col);
-}
-
-/**
- * Creates a new cell
- */
-const createNewCell = () => {
-    const cell = document.createElement("div");
-    cell.classList.add("cell");
-    col.appendChild(cell);
-}
