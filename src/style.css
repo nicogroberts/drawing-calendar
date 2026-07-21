@@ -83,6 +83,10 @@ main {
   margin: 4px;
 }
 
+.legend {
+  display: flex;
+}
+
 footer {
   text-align: center;
   margin: 0.5rem;
