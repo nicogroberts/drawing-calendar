@@ -34,11 +34,11 @@ const activityStates = {
     Most: "#55d163"
 };
 
-// current date variable
+// Current date variable
 const currentDate = new Date();
-// current month variable
+// Current month variable
 const currentMonth = currentDate.getMonth();
-// current day variable
+// Current day variable
 const currentDay = currentDate.getDate();
 
 /**
@@ -69,16 +69,12 @@ const calendar = document.getElementById("calendar");
 const calendarContainer = document.createElement("div");
 calendarContainer.classList.add("calendar-container");
 calendar.appendChild(calendarContainer);
-// Create months div
-//const months = document.createElement("div");
-//months.classList.add("months");
-//calendar.appendChild(months);
 // Create days div
 const days = document.createElement("div");
 days.classList.add("days");
 daysOfTheWeek.forEach(generateDayLabel);
 calendarContainer.appendChild(days);
-//Creates months div
+// Create months div
 const months = document.createElement("div");
 months.classList.add("months");
 calendarContainer.appendChild(months);
@@ -86,12 +82,14 @@ calendarContainer.appendChild(months);
 const legend = document.createElement("div");
 legend.classList.add("legend");
 calendar.appendChild(legend);
+// Less label
 const lessLabel = document.createElement("span");
 lessLabel.classList.add("less-label");
 lessLabel.textContent = "Less";
 legend.appendChild(lessLabel);
 Object.values(activityStates).forEach(generateLegendCells);
 const moreLabel = document.createElement("span");
+// More label
 moreLabel.classList.add("more-label");
 moreLabel.textContent = "More";
 legend.appendChild(moreLabel);
