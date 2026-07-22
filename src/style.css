@@ -4,6 +4,7 @@
   --primary-color: #1e1e1e; /* Color from Obsidian default theme */
   --secondary-color: #262626; /* Color from Obsidian default theme */
   --tertiary-color: #9e9e9e; /* Color from Obsidian default theme */
+  --quaternary-color: #8565ec; /* Color from Obsidian default theme */
 }
 
 html {
@@ -34,6 +35,15 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#open-file {
+  background-color: var(--quaternary-color);
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  padding: 6px 18px;
+  margin-top: 1rem;
 }
 
 #yearly-summary {
