@@ -4,7 +4,12 @@
  */
 const parseFile = (text) => {
     console.log("Text received by parser:");
-    console.log(text);
+    const lines = text.split(/\r?\n/);
+    
+    lines.forEach((line) => {
+        line.trim();
+        console.log(line);
+    });
 }
 
 export { parseFile };
