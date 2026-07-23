@@ -1,5 +1,3 @@
-export { displayCurrentDate, generateCalendar };
-
 /**
  * Object containing all the days corresponding to each month
  */
@@ -161,3 +159,5 @@ const generateCalendar = () => {
         }
     }
 };
+
+export { displayCurrentDate, generateCalendar };

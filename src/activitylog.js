@@ -1,5 +1,3 @@
-export { generateActivityLog };
-
 // Get the activity log div
 const activityLog = document.getElementById("activity-log");
 // Create section heading
@@ -11,3 +9,5 @@ activityLog.appendChild(logHeading);
 const generateActivityLog = () => {
 
 }
+
+export { generateActivityLog };

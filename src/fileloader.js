@@ -5,7 +5,7 @@ let fileHandle;
 /**
  * Handles loading file in from file selection
  */
-export const getFile = async () => {
+const getFile = async () => {
     [fileHandle] = await window.showOpenFilePicker();
     // Get text from file
     if (fileHandle) {
@@ -15,3 +15,5 @@ export const getFile = async () => {
         parseFile(text);
     }
 }
+
+export { getFile };
