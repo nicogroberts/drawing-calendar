@@ -1,3 +1,5 @@
+import { parseFile } from "./parser";
+
 let fileHandle;
 
 /**
@@ -5,11 +7,11 @@ let fileHandle;
  */
 export const getFile = async () => {
     [fileHandle] = await window.showOpenFilePicker();
-    // Get file using api then send to parser
+    // Get text from file
     if (fileHandle) {
         const file = await fileHandle.getFile();
         const text = await file.text();
-
-        console.log(text);
+        // Send text to be parsed
+        parseFile(text);
     }
 }
