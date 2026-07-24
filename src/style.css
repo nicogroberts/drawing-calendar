@@ -46,8 +46,12 @@ main {
   margin-top: 1rem;
 }
 
-#yearly-summary {
+#yearly-sessions {
   margin-top: 1rem;
+  font-size: small;
+}
+
+#yearly-time {
   font-size: small;
 }
 

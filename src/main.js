@@ -8,7 +8,10 @@ displayCurrentDate();
 generateCalendar();
 generateActivityLog();
 
-let yearlySessions = 0;
+let yearlySessionsCount = 0;
+let yearlyTimeAmount = 0;
 const mainSection = document.querySelector("main");
-const yearlySummary = document.getElementById("yearly-summary");
-yearlySummary.textContent = `${yearlySessions} sessions in the last year`;
+const yearlySessions = document.getElementById("yearly-sessions");
+yearlySessions.textContent = `${yearlySessionsCount} sessions in the last year`;
+const yearlyTime = document.getElementById("yearly-time");
+yearlyTime.textContent = `${yearlyTimeAmount} hours in the last year`;
