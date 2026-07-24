@@ -8,6 +8,6 @@ activityLog.appendChild(logHeading);
 
 const generateActivityLog = () => {
 
-}
+};
 
 export { generateActivityLog };

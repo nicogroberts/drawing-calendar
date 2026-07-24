@@ -14,6 +14,6 @@ const getFile = async () => {
         // Send text to be parsed
         parseFile(text);
     }
-}
+};
 
 export { getFile };
