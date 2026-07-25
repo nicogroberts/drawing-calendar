@@ -165,7 +165,7 @@ const generateCalendar = () => {
 
 /**
  * Changes the cells apperance based on the data from activities
- * @param {*} activities An array of objects representing activities (drawing sessions)
+ * @param {*} activities An array of strings representing activities (drawing sessions)
  */
 const populateCalendar = (activities) => {
     //console.log(activities);

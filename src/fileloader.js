@@ -26,7 +26,7 @@ const getFile = async () => {
 
 /**
  * Getter for activities
- * @returns An array of objects representing activities (drawing sessions)
+ * @returns An array of strings representing activities (drawing sessions)
  */
 const getActivities = () => {
     return activities;

@@ -9,7 +9,7 @@ let startDate = new Date(2026, 7, 1);
 
 /**
  * Creates a log of session information based on data from activities
- * @param {*} activities An array of objects representing activities (drawing sessions)
+ * @param {*} activities An array of strings representing activities (drawing sessions)
  */
 const generateActivityLog = (activities) => {
     // for each activity generate a message containing the data and activity time
@@ -23,6 +23,10 @@ const generateActivityLog = (activities) => {
         messageHeading.innerText = `Drawing Session Day ${index + 1}`;
         // in the literal add "On ${startDate} at the end when startDate increases properly"
         logMessage.appendChild(messageHeading);
+        const messageInfo = document.createElement("div");
+        messageInfo.classList.add("message-info");
+        messageInfo.innerText = `Session time: ${activity}`;
+        logMessage.appendChild(messageInfo);
     });
 };
 
