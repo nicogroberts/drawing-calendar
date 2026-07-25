@@ -36,8 +36,13 @@ const generateActivityLog = (activities) => {
             showMore.id = "show-more";
             showMore.innerText = "Show More Activity";
             btnContainer.appendChild(showMore);
+            document.getElementById("show-more").addEventListener("click", showMoreActivities);
         }
     });
+};
+
+const showMoreActivities = () => {
+    console.log("Showing more activities");
 };
 
 export { generateActivityLog };
