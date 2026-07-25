@@ -6,8 +6,8 @@ logHeading.textContent = "Drawing activity";
 activityLog.appendChild(logHeading);
 // get activity object from Obsidian
 
-const generateActivityLog = () => {
-
+const generateActivityLog = (activities) => {
+    console.log(activities);
 };
 
 export { generateActivityLog };

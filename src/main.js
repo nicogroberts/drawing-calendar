@@ -1,12 +1,18 @@
 import { displayCurrentDate, generateCalendar } from "./calendar";
 import { generateActivityLog } from "./activitylog";
-import { getFile } from "./fileloader";
+import { getFile, getActivities } from "./fileloader";
 
-document.getElementById("open-file").addEventListener("click", getFile);
+let isLoaded = false;
+
+document.getElementById("open-file").addEventListener("click", async () => {
+    isLoaded = await getFile();
+    if (isLoaded) {
+        generateActivityLog(getActivities());
+    }
+});
 
 displayCurrentDate();
 generateCalendar();
-generateActivityLog();
 
 let yearlySessionsCount = 0;
 let yearlyTimeAmount = 0;
