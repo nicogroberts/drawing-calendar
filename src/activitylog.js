@@ -28,6 +28,15 @@ const generateActivityLog = (activities) => {
         messageInfo.classList.add("message-info");
         messageInfo.innerText = `Session time: ${activity}`;
         logMessage.appendChild(messageInfo);
+        if (index === activities.length - 1) {
+            const btnContainer = document.createElement("div");
+            btnContainer.classList.add("btn-container");
+            activityLog.appendChild(btnContainer);
+            const showMore = document.createElement("button");
+            showMore.id = "show-more";
+            showMore.innerText = "Show More Activity";
+            btnContainer.appendChild(showMore);
+        }
     });
 };
 
