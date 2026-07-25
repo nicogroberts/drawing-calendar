@@ -7,17 +7,21 @@ let activities = [];
  * Handles loading file in from file selection
  */
 const getFile = async () => {
-    [fileHandle] = await window.showOpenFilePicker();
-    // Get text from file
-    if (fileHandle) {
-        const file = await fileHandle.getFile();
-        const text = await file.text();
-        // Send text to be parsed
-        activities = parseFile(text);
-        // Return true if activities was updated
-        return true;
+    try {
+        [fileHandle] = await window.showOpenFilePicker();
+        // Get text from file
+        if (fileHandle) {
+            const file = await fileHandle.getFile();
+            const text = await file.text();
+            // Send text to be parsed
+            activities = parseFile(text);
+            // Return true if activities was updated
+            return true;
+        }
+    } catch (error) {
+        console.error(err);
+        return false;
     }
-    return false;
 };
 
 /**
