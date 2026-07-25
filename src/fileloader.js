@@ -30,6 +30,6 @@ const getFile = async () => {
  */
 const getActivities = () => {
     return activities;
-}
+};
 
 export { getFile, getActivities };

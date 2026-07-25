@@ -32,6 +32,9 @@ const activityStates = {
     Most: "#55d163"
 };
 
+// Hardcoded start date cause it's my project and that when I started logging data
+const startDate = new Date(2026, 7, 1);
+
 // Current date variable
 const currentDate = new Date();
 // Current month variable
@@ -48,7 +51,7 @@ const generateDayLabel = (d) => {
     day.id = d;
     day.textContent = d;
     days.appendChild(day);
-}
+};
 
 /**
  * Creates the cells in the legend of the calendar
@@ -59,7 +62,7 @@ const generateLegendCells = (c) => {
     cell.classList.add("cell");
     cell.style.backgroundColor = c;
     legend.appendChild(cell);
-}
+};
 
 // Get the calendar div
 const calendar = document.getElementById("calendar");
@@ -165,7 +168,7 @@ const generateCalendar = () => {
  * @param {*} activities An array of objects representing activities (drawing sessions)
  */
 const populateCalendar = (activities) => {
-    console.log(activities);
+    //console.log(activities);
 };
 
 export { displayCurrentDate, generateCalendar, populateCalendar };

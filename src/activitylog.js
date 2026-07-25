@@ -4,14 +4,26 @@ const activityLog = document.getElementById("activity-log");
 const logHeading = document.createElement("div");
 logHeading.textContent = "Drawing activity";
 activityLog.appendChild(logHeading);
-// get activity object from Obsidian
+// Hardcoded start date cause it's my project and that when I started logging data
+let startDate = new Date(2026, 7, 1);
 
 /**
  * Creates a log of session information based on data from activities
  * @param {*} activities An array of objects representing activities (drawing sessions)
  */
 const generateActivityLog = (activities) => {
-    console.log(activities);
+    // for each activity generate a message containing the data and activity time
+    activities.forEach(activity => {
+        console.log(activity);
+        const logMessage = document.createElement("div");
+        logMessage.classList.add("log-message");
+        activityLog.appendChild(logMessage);
+        const messageHeading = document.createElement("div");
+        messageHeading.classList.add("message-heading");
+        messageHeading.innerText = `Drawing Session Day ${activity.date}`;
+        // in the literal add "On ${startDate} at the end when startDate increases properly"
+        logMessage.appendChild(messageHeading);
+    });
 };
 
 export { generateActivityLog };
