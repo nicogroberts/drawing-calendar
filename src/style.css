@@ -102,6 +102,17 @@ main {
   display: flex;
 }
 
+.log-heading {
+  margin-bottom: 1rem;
+}
+
+.log-message {
+  border: solid 1px var(--tertiary-color);
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
 footer {
   text-align: center;
   margin: 0.5rem;

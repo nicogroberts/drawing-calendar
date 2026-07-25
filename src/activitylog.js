@@ -2,6 +2,7 @@
 const activityLog = document.getElementById("activity-log");
 // Create section heading
 const logHeading = document.createElement("div");
+logHeading.classList.add("log-heading");
 logHeading.textContent = "Drawing activity";
 activityLog.appendChild(logHeading);
 // Hardcoded start date cause it's my project, thats when I started logging data, and I don't miss a day lol
@@ -12,7 +13,7 @@ let startDate = new Date(2026, 7, 1);
  * @param {*} activities An array of strings representing activities (drawing sessions)
  */
 const generateActivityLog = (activities) => {
-    // for each activity generate a message containing the data and activity time
+    // for each activity generate a message containing the date and activity time
     activities.forEach((activity, index) => {
         console.log(activity);
         const logMessage = document.createElement("div");
