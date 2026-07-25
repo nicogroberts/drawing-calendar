@@ -160,4 +160,12 @@ const generateCalendar = () => {
     }
 };
 
-export { displayCurrentDate, generateCalendar };
+/**
+ * Changes the cells apperance based on the data from activities
+ * @param {*} activities An array of objects representing activities (drawing sessions)
+ */
+const populateCalendar = (activities) => {
+    console.log(activities);
+};
+
+export { displayCurrentDate, generateCalendar, populateCalendar };

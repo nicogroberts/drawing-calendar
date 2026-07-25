@@ -1,4 +1,4 @@
-import { displayCurrentDate, generateCalendar } from "./calendar";
+import { displayCurrentDate, generateCalendar, populateCalendar } from "./calendar";
 import { generateActivityLog } from "./activitylog";
 import { getFile, getActivities } from "./fileloader";
 
@@ -8,6 +8,7 @@ document.getElementById("open-file").addEventListener("click", async () => {
     isLoaded = await getFile();
     if (isLoaded) {
         generateActivityLog(getActivities());
+        populateCalendar(getActivities());
     }
 });
 

@@ -18,7 +18,7 @@ const getFile = async () => {
             // Return true if activities was updated
             return true;
         }
-    } catch (error) {
+    } catch (err) {
         console.error(err);
         return false;
     }
