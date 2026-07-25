@@ -4,7 +4,7 @@ const activityLog = document.getElementById("activity-log");
 const logHeading = document.createElement("div");
 logHeading.textContent = "Drawing activity";
 activityLog.appendChild(logHeading);
-// Hardcoded start date cause it's my project and that when I started logging data
+// Hardcoded start date cause it's my project, thats when I started logging data, and I don't miss a day lol
 let startDate = new Date(2026, 7, 1);
 
 /**
@@ -13,14 +13,14 @@ let startDate = new Date(2026, 7, 1);
  */
 const generateActivityLog = (activities) => {
     // for each activity generate a message containing the data and activity time
-    activities.forEach(activity => {
+    activities.forEach((activity, index) => {
         console.log(activity);
         const logMessage = document.createElement("div");
         logMessage.classList.add("log-message");
         activityLog.appendChild(logMessage);
         const messageHeading = document.createElement("div");
         messageHeading.classList.add("message-heading");
-        messageHeading.innerText = `Drawing Session Day ${activity.date}`;
+        messageHeading.innerText = `Drawing Session Day ${index + 1}`;
         // in the literal add "On ${startDate} at the end when startDate increases properly"
         logMessage.appendChild(messageHeading);
     });
