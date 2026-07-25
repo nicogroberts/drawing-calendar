@@ -104,6 +104,15 @@ main {
 
 .log-heading {
   margin-bottom: 1rem;
+  color: #fff;
+}
+
+.message-heading {
+  color: #fff;
+}
+
+.message-info {
+  font-size: small;
 }
 
 .log-message {

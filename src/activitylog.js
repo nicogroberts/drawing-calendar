@@ -14,14 +14,14 @@ let startDate = new Date(2026, 7, 1);
  */
 const generateActivityLog = (activities) => {
     // for each activity generate a message containing the date and activity time
-    activities.forEach((activity, index) => {
+    activities.reverse().forEach((activity, index) => {
         console.log(activity);
         const logMessage = document.createElement("div");
         logMessage.classList.add("log-message");
         activityLog.appendChild(logMessage);
         const messageHeading = document.createElement("div");
         messageHeading.classList.add("message-heading");
-        messageHeading.innerText = `Drawing Session Day ${index + 1}`;
+        messageHeading.innerText = `Drawing Session Day ${activities.length - index}`;
         // in the literal add "On ${startDate} at the end when startDate increases properly"
         logMessage.appendChild(messageHeading);
         const messageInfo = document.createElement("div");
