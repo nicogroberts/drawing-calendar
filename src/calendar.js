@@ -173,19 +173,20 @@ const counts = {};
 const populateCalendar = (activities) => {
     // Call function to convert time into seconds
     const timeInSeconds = activities.reverse().map(toSeconds); 
+    console.log(timeInSeconds);
 };
 
 /**
  * Converts a time to total amount of seconds
  * @param {*} activities An array of strings representing activities (drawing sessions)
  */
-const toSeconds = (activities) => {
-    const parts = activities.split(":").map(Number);
+const toSeconds = (activity) => {
+    const parts = activity.split(":").map(Number);
 
     if (parts.length === 3) {
-
+        return parts[0] * 3600 + parts[1] * 60 + parts[2];
     } else if (parts.length === 2) {
-        
+        return parts[0] * 60 + parts[1]; 
     } else {
         return 0; // time less than a minute shall not be considered
     }
