@@ -18,6 +18,7 @@ const generateActivityLog = (activities) => {
         console.log(activity);
         const logMessage = document.createElement("div");
         logMessage.classList.add("log-message");
+        // Hide all activities excluding the first three
         if (index >= 3) {
             logMessage.classList.add("hide");
         }
@@ -46,9 +47,13 @@ const generateActivityLog = (activities) => {
 
 const showMoreActivities = () => {
     console.log("Showing more activities");
-    // Hide all activities excluding the first three
-    // More button to below the first three
     // Once this function is called display all the activities
+    const logMessages = activityLog.querySelectorAll("div");
+    logMessages.forEach(logMessage => {
+        if (logMessage.classList.contains("hide")) {
+            logMessage.classList.remove("hide");
+        }
+    });
     const showMore = document.getElementById("show-more");
     showMore.classList.add("hide");
 };
