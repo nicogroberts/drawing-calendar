@@ -18,6 +18,9 @@ const generateActivityLog = (activities) => {
         console.log(activity);
         const logMessage = document.createElement("div");
         logMessage.classList.add("log-message");
+        if (index >= 3) {
+            logMessage.classList.add("hide");
+        }
         activityLog.appendChild(logMessage);
         const messageHeading = document.createElement("div");
         messageHeading.classList.add("message-heading");
@@ -43,6 +46,11 @@ const generateActivityLog = (activities) => {
 
 const showMoreActivities = () => {
     console.log("Showing more activities");
+    // Hide all activities excluding the first three
+    // More button to below the first three
+    // Once this function is called display all the activities
+    const showMore = document.getElementById("show-more");
+    showMore.classList.add("hide");
 };
 
 export { generateActivityLog };

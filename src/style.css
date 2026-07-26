@@ -136,6 +136,10 @@ main {
   border-radius: 5px;
 }
 
+.hide {
+  display: none;
+}
+
 footer {
   text-align: center;
   margin: 0.5rem;
