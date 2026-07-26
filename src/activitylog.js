@@ -6,16 +6,17 @@ logHeading.classList.add("log-heading");
 logHeading.textContent = "Drawing activity";
 activityLog.appendChild(logHeading);
 // Hardcoded start date cause it's my project, thats when I started logging data, and I don't miss a day lol
-let startDate = new Date(2026, 7, 1);
+const startDate = new Date(2026, 6, 1);
 
 /**
  * Creates a log of session information based on data from activities
  * @param {*} activities An array of strings representing activities (drawing sessions)
  */
 const generateActivityLog = (activities) => {
+    const dateText = new Date(startDate);
+    dateText.setDate(dateText.getDate() + activities.length);
     // for each activity generate a message containing the date and activity time
     activities.reverse().forEach((activity, index) => {
-        console.log(activity);
         const logMessage = document.createElement("div");
         logMessage.classList.add("log-message");
         // Hide all activities excluding the first three
@@ -25,7 +26,8 @@ const generateActivityLog = (activities) => {
         activityLog.appendChild(logMessage);
         const messageHeading = document.createElement("div");
         messageHeading.classList.add("message-heading");
-        messageHeading.innerText = `Drawing Session Day ${activities.length - index}`;
+        dateText.setDate(dateText.getDate() - 1);
+        messageHeading.innerText = `Drawing Session Day ${activities.length - index} on ${dateText.toLocaleDateString('en-US')}`;
         // in the literal add "On ${startDate} at the end when startDate increases properly"
         logMessage.appendChild(messageHeading);
         const messageInfo = document.createElement("div");
@@ -45,6 +47,9 @@ const generateActivityLog = (activities) => {
     });
 };
 
+/**
+ * Handles the click function of show more button, displays all log messages
+ */
 const showMoreActivities = () => {
     console.log("Showing more activities");
     // Once this function is called display all the activities
@@ -54,6 +59,7 @@ const showMoreActivities = () => {
             logMessage.classList.remove("hide");
         }
     });
+    // Hide button
     const showMore = document.getElementById("show-more");
     showMore.classList.add("hide");
 };

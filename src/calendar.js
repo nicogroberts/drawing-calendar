@@ -168,7 +168,9 @@ const generateCalendar = () => {
  * @param {*} activities An array of strings representing activities (drawing sessions)
  */
 const populateCalendar = (activities) => {
-    //console.log(activities);
+    activities.reverse().forEach(activity => {
+        console.log(activity);
+    });
 };
 
 export { displayCurrentDate, generateCalendar, populateCalendar };
