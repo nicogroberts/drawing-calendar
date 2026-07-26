@@ -163,14 +163,33 @@ const generateCalendar = () => {
     }
 };
 
+// Stores the count of each hours
+const counts = {};
+
 /**
  * Changes the cells apperance based on the data from activities
  * @param {*} activities An array of strings representing activities (drawing sessions)
  */
 const populateCalendar = (activities) => {
-    activities.reverse().forEach(activity => {
-        console.log(activity);
-    });
+    // Call function to convert time into seconds
+    const timeInSeconds = activities.reverse().map(toSeconds); 
+};
+
+/**
+ * Converts a time to total amount of seconds
+ * @param {*} activities An array of strings representing activities (drawing sessions)
+ */
+const toSeconds = (activities) => {
+    const parts = activities.split(":").map(Number);
+
+    if (parts.length === 3) {
+
+    } else if (parts.length === 2) {
+        
+    } else {
+        return 0; // time less than a minute shall not be considered
+    }
+
 };
 
 export { displayCurrentDate, generateCalendar, populateCalendar };
