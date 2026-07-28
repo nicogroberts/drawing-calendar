@@ -163,9 +163,6 @@ const generateCalendar = () => {
     }
 };
 
-// Stores the count of each hours
-const counts = {};
-
 /**
  * Changes the cells apperance based on the data from activities
  * @param {*} activities An array of strings representing activities (drawing sessions)
@@ -174,6 +171,9 @@ const populateCalendar = (activities) => {
     // Call function to convert time into seconds
     const timeInSeconds = activities.reverse().map(toSeconds); 
     console.log(timeInSeconds);
+    // Get the max value
+    const max = Math.max(...timeInSeconds);
+    console.log(max);
 };
 
 /**
