@@ -102,6 +102,12 @@ const displayCurrentDate = () => {
     console.log(`Current Date: ${currentDate}, Month: ${currentMonth}, Day: ${currentDay}`);
 };
 
+/**
+ * Gets a number of days to be offset the beginning of a month based on the current year
+ * @param {*} year The current year
+ * @param {*} month The current month
+ * @returns Amount of days to be offset
+ */
 const getMonthOffset = (year, month) => {
     return (new Date(year, month, 1).getDay() + 6) % 7;
 };
@@ -127,9 +133,15 @@ const generateCalendar = () => {
         col.classList.add("col");
         cellContainer.appendChild(col);
 
-        // Redo the calendar generation to account for the offset
+        // Get the offset
+        let dayCounter = getMonthOffset(year, currentMonth);
 
-        let dayCounter = 0;
+        // Generate offset cells
+        for (let j = 0; j < dayCounter; j++) {
+            const cell = document.createElement("div");
+            cell.classList.add("cell", "empty");
+            col.append(cell);
+        }
 
         // Create a day div for each day up till the current month
         if (i !== currentMonth) {
