@@ -170,10 +170,13 @@ const generateCalendar = () => {
 const populateCalendar = (activities) => {
     // Call function to convert time into seconds
     const timeInSeconds = activities.reverse().map(toSeconds); 
-    console.log(timeInSeconds);
     // Get the max value
     const max = Math.max(...timeInSeconds);
-    console.log(max);
+    
+    timeInSeconds.forEach(time => {
+        const normalized = time / max;
+        console.log(normalized);
+    });
 };
 
 /**
