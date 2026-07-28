@@ -102,12 +102,17 @@ const displayCurrentDate = () => {
     console.log(`Current Date: ${currentDate}, Month: ${currentMonth}, Day: ${currentDay}`);
 };
 
+const getMonthOffset = (year, month) => {
+    return (new Date(year, month, 1).getDay() + 6) % 7;
+};
+
 /**
  * Creates calendar elements on the DOM
  */
 const generateCalendar = () => {
-    for (let i = 0; i <= currentMonth; i++)
-    {
+    const year = new Date().getFullYear();
+
+    for (let i = 0; i <= currentMonth; i++) {
         // Create month labels
         const month = document.createElement("span");
         month.classList.add("month");
@@ -121,6 +126,8 @@ const generateCalendar = () => {
         let col = document.createElement("div");
         col.classList.add("col");
         cellContainer.appendChild(col);
+
+        // Redo the calendar generation to account for the offset
 
         let dayCounter = 0;
 
@@ -172,7 +179,7 @@ const populateCalendar = (activities) => {
     const timeInSeconds = activities.reverse().map(toSeconds); 
     // Get the max value
     const max = Math.max(...timeInSeconds);
-    
+
     timeInSeconds.forEach(time => {
         const normalized = time / max;
         console.log(normalized);
