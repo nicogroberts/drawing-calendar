@@ -134,7 +134,7 @@ const generateCalendar = () => {
         cellContainer.appendChild(col);
 
         // Get the offset
-        let dayCounter = getMonthOffset(year, currentMonth);
+        let dayCounter = getMonthOffset(year, i);
 
         // Generate offset cells
         for (let j = 0; j < dayCounter; j++) {
@@ -143,40 +143,21 @@ const generateCalendar = () => {
             col.append(cell);
         }
 
-        // Create a day div for each day up till the current month
-        if (i !== currentMonth) {
-            for (let j = 0; j < Object.values(daysOfTheMonth)[i]; j++) {
-                const cell = document.createElement("div");
-                cell.classList.add("cell");
-                col.appendChild(cell);
-                dayCounter++;
+        // Calcuate days per month
+        const daysToGenerate = i === currentMonth ? currentDay : Object.values(daysOfTheMonth)[i];
 
-                if (dayCounter === 7) {
-                    col = document.createElement("div");
-                    col.classList.add("col");
-                    cellContainer.appendChild(col);
-                    dayCounter = 0;
-                }
-            }
-            col = document.createElement("div");
-            col.classList.add("col");
-            month.appendChild(col);
-        }
-        
-        if (i === currentMonth) {
-            console.log(currentDay);
-            for (let j = 0; j < currentDay; j++) {
-                const cell = document.createElement("div");
-                cell.classList.add("cell");
-                col.appendChild(cell);
-                dayCounter++;
+        // Create cells
+        for (let j = 0; j < daysToGenerate; j++) {
+            const cell = document.createElement("div");
+            cell.classList.add("cell");
+            col.appendChild(cell);
+            dayCounter++;
 
-                if (dayCounter === 7) {
-                    col = document.createElement("div");
-                    col.classList.add("col");
-                    cellContainer.appendChild(col);
-                    dayCounter = 0;
-                }
+            if (dayCounter === 7) {
+                col = document.createElement("div");
+                col.classList.add("col");
+                cellContainer.appendChild(col);
+                dayCounter = 0;
             }
         }
     }
