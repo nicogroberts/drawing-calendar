@@ -173,9 +173,28 @@ const populateCalendar = (activities) => {
     // Get the max value
     const max = Math.max(...timeInSeconds);
 
+    // Get the normalized value
     timeInSeconds.forEach(time => {
         const normalized = time / max;
-        console.log(normalized);
+    });
+
+    const months = document.querySelectorAll(".months .month");
+
+    months.forEach((month, monthIndex) => {
+        const cols = month.querySelectorAll(".cell-container .col");
+
+        cols.forEach((col, colIndex) => {
+            const cells = col.querySelectorAll(".cell:not(.empty)");
+
+            cells.forEach((cell, cellIndex) => {
+                console.log(cell, cellIndex);
+
+                if ((monthIndex + 1) === startDate.getMonth() && colIndex === 0 && cellIndex === 0) {
+                    // This is the cell to start populating with activities
+                }
+            });
+
+        });
     });
 };
 
