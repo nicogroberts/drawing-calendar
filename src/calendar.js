@@ -174,9 +174,10 @@ const populateCalendar = (activities) => {
     const max = Math.max(...timeInSeconds);
 
     // Get the normalized value
-    timeInSeconds.forEach(time => {
-        const normalized = time / max;
-    });
+    const normalized = timeInSeconds.map(time => time / max); 
+
+    let valueIndex = 0;
+    let populate = false;
 
     const months = document.querySelectorAll(".months .month");
 
@@ -191,11 +192,42 @@ const populateCalendar = (activities) => {
 
                 if ((monthIndex + 1) === startDate.getMonth() && colIndex === 0 && cellIndex === 0) {
                     // This is the cell to start populating with activities
+                    populate = true;
                 }
+                if (populate) {
+                    // change cell color based on normalized value
+                    getColor(cell, normalized[valueIndex]);
+                    valueIndex++;
+                }
+
             });
 
         });
     });
+};
+
+const getColor = (cell, normalized) => {
+    switch (true) {
+        case 0:
+            cell.style.backgroundColor = activityStates.None;
+            break;
+
+        case normalized <= 0.25:
+            cell.style.backgroundColor = activityStates.Least;
+            break;
+
+        case normalized <= 0.5:
+            cell.style.backgroundColor = activityStates.Less;
+            break;
+        
+        case normalized <= 0.75:
+            cell.style.backgroundColor = activityStates.More;
+            break;
+
+        default:
+            cell.style.backgroundColor = activityStates.Most;
+            break;
+    }
 };
 
 /**
