@@ -188,7 +188,6 @@ const populateCalendar = (activities) => {
             const cells = col.querySelectorAll(".cell:not(.empty)");
 
             cells.forEach((cell, cellIndex) => {
-                console.log(cell, cellIndex);
 
                 if ((monthIndex + 1) === startDate.getMonth() && colIndex === 0 && cellIndex === 0) {
                     // This is the cell to start populating with activities
@@ -206,6 +205,11 @@ const populateCalendar = (activities) => {
     });
 };
 
+/**
+ * Changes the color of a cell based on the normalized value
+ * @param {*} cell The cell that needs a color change
+ * @param {*} normalized The value to determine the color
+ */
 const getColor = (cell, normalized) => {
     switch (true) {
         case 0:
@@ -247,4 +251,4 @@ const toSeconds = (activity) => {
 
 };
 
-export { displayCurrentDate, generateCalendar, populateCalendar };
+export { displayCurrentDate, generateCalendar, populateCalendar, toSeconds };

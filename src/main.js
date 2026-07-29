@@ -1,4 +1,4 @@
-import { displayCurrentDate, generateCalendar, populateCalendar } from "./calendar";
+import { displayCurrentDate, generateCalendar, populateCalendar, toSeconds } from "./calendar";
 import { generateActivityLog } from "./activitylog";
 import { getFile, getActivities } from "./fileloader";
 
@@ -6,10 +6,25 @@ let isLoaded = false;
 
 document.getElementById("open-file").addEventListener("click", async () => {
     isLoaded = await getFile();
-    if (isLoaded) {
-        generateActivityLog(getActivities());
-        populateCalendar(getActivities());
-    }
+    if (!isLoaded) return;
+
+    const activities = getActivities();
+
+    generateActivityLog(activities);
+    populateCalendar(activities);
+
+    let totalSeconds = 0;
+
+    activities.forEach((activity, index) => {
+        totalSeconds += toSeconds(activity);
+        yearlySessionsCount = index + 1;
+    });
+    
+    yearlyTimeAmount = totalSeconds / 3600;
+
+    yearlySessions.textContent = `${yearlySessionsCount} sessions in the last year`;
+    yearlyTime.textContent = `${yearlyTimeAmount.toFixed(1)} hours in the last year`;
+    
 });
 
 displayCurrentDate();
