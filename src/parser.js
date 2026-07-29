@@ -3,7 +3,6 @@
  * @param {*} text the text recieved from fileloader.js to be parsed
  */
 const parseFile = (text) => {
-    console.log("Text received by parser:");
     const lines = text.split(/\r?\n/);
 
     const results = [];
