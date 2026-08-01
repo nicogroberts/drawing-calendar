@@ -32,7 +32,6 @@ generateCalendar();
 
 let yearlySessionsCount = 0;
 let yearlyTimeAmount = 0;
-const mainSection = document.querySelector("main");
 const yearlySessions = document.getElementById("yearly-sessions");
 yearlySessions.textContent = `${yearlySessionsCount} sessions in the last year`;
 const yearlyTime = document.getElementById("yearly-time");

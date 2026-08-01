@@ -27,12 +27,12 @@ const generateActivityLog = (activities) => {
         const messageHeading = document.createElement("div");
         messageHeading.classList.add("message-heading");
         dateText.setDate(dateText.getDate() - 1);
-        messageHeading.innerText = `Drawing Session Day ${activities.length - index} on ${dateText.toLocaleDateString('en-US')}`;
+        messageHeading.textContent = `Drawing Session Day ${activities.length - index} on ${dateText.toLocaleDateString('en-US')}`;
         // in the literal add "On ${startDate} at the end when startDate increases properly"
         logMessage.appendChild(messageHeading);
         const messageInfo = document.createElement("div");
         messageInfo.classList.add("message-info");
-        messageInfo.innerText = `Session time: ${activity}`;
+        messageInfo.textContent = `Session time: ${activity}`;
         logMessage.appendChild(messageInfo);
         if (index === activities.length - 1) {
             const btnContainer = document.createElement("div");
@@ -40,7 +40,7 @@ const generateActivityLog = (activities) => {
             activityLog.appendChild(btnContainer);
             const showMore = document.createElement("button");
             showMore.id = "show-more";
-            showMore.innerText = "Show More Activity";
+            showMore.textContent = "Show More Activity";
             btnContainer.appendChild(showMore);
             document.getElementById("show-more").addEventListener("click", showMoreActivities);
         }
